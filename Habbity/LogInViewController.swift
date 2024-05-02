@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogInViewController: UIViewController {
 
@@ -14,10 +15,23 @@ class LogInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        passwordTextField.isSecureTextEntry = true
 
         // Do any additional setup after loading the view.
     }
     @IBAction func signInClicked(_ sender: UIButton) {
+        guard let email = usernameTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+            
+            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if let e = error {
+                    print("error")
+                }
+                else {
+                    // Go to our home screen
+                    self.performSegue (withIdentifier: "goToNext", sender: self)
+                }
+            }
     }
     
 
