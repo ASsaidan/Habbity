@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E056E5DB2BE38E0400EB2917 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056E5DA2BE38E0400EB2917 /* NewHabitViewController.swift */; };
 		E0E55E0C2BE2B3A000DCF1D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E55E0B2BE2B3A000DCF1D7 /* AppDelegate.swift */; };
 		E0E55E0E2BE2B3A000DCF1D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E55E0D2BE2B3A000DCF1D7 /* SceneDelegate.swift */; };
 		E0E55E102BE2B3A000DCF1D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E55E0F2BE2B3A000DCF1D7 /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E056E5DA2BE38E0400EB2917 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
 		E0E55E082BE2B3A000DCF1D7 /* Habbity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habbity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E55E0B2BE2B3A000DCF1D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0E55E0D2BE2B3A000DCF1D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				E0E55E0B2BE2B3A000DCF1D7 /* AppDelegate.swift */,
+				E056E5DA2BE38E0400EB2917 /* NewHabitViewController.swift */,
 				E0E55E3D2BE2B92200DCF1D7 /* CollectionViewCell.swift */,
 				E0E55E0D2BE2B3A000DCF1D7 /* SceneDelegate.swift */,
 				E0E55E0F2BE2B3A000DCF1D7 /* ViewController.swift */,
@@ -265,6 +268,7 @@
 				E0E55E0C2BE2B3A000DCF1D7 /* AppDelegate.swift in Sources */,
 				E0E55E3E2BE2B92200DCF1D7 /* CollectionViewCell.swift in Sources */,
 				E0E55E0E2BE2B3A000DCF1D7 /* SceneDelegate.swift in Sources */,
+				E056E5DB2BE38E0400EB2917 /* NewHabitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

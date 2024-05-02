@@ -9,8 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var addNewHabit: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     var images: [String] =
     ["one", "two", "three"]
     
@@ -36,6 +36,7 @@ extension ViewController:
         as! CollectionViewCell
         cell.layer.borderWidth = 0.5
         cell.layer.cornerRadius = 23
+        cell.imageView.layer.cornerRadius = 23
         cell.layer.borderColor = UIColor.blue.cgColor
         cell.pTitle.text = titleLbl[indexPath.row]
         cell.imageView.image = UIImage(named: images [indexPath.row])
