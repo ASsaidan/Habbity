@@ -8,7 +8,8 @@
 import UIKit
 
 class AddNewHabitViewController: UIViewController {
-
+    
+    @IBOutlet weak var habitNameTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -16,6 +17,10 @@ class AddNewHabitViewController: UIViewController {
     }
     
 
+    @IBAction func addNewHabitClicked(_ sender: UIButton) {
+    }
+    @IBAction func uploadImageClicked(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 

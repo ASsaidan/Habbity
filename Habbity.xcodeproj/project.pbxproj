@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		E056E5DB2BE38E0400EB2917 /* NewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056E5DA2BE38E0400EB2917 /* NewHabitViewController.swift */; };
+		E056E5DD2BE3D0B800EB2917 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056E5DC2BE3D0B800EB2917 /* LogInViewController.swift */; };
+		E056E5DF2BE3D1EA00EB2917 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056E5DE2BE3D1EA00EB2917 /* SignUpViewController.swift */; };
+		E056E5E12BE3D31F00EB2917 /* AddNewHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E056E5E02BE3D31F00EB2917 /* AddNewHabitViewController.swift */; };
 		E0E55E0C2BE2B3A000DCF1D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E55E0B2BE2B3A000DCF1D7 /* AppDelegate.swift */; };
 		E0E55E0E2BE2B3A000DCF1D7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E55E0D2BE2B3A000DCF1D7 /* SceneDelegate.swift */; };
 		E0E55E102BE2B3A000DCF1D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E55E0F2BE2B3A000DCF1D7 /* ViewController.swift */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		E056E5DA2BE38E0400EB2917 /* NewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitViewController.swift; sourceTree = "<group>"; };
+		E056E5DC2BE3D0B800EB2917 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		E056E5DE2BE3D1EA00EB2917 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E056E5E02BE3D31F00EB2917 /* AddNewHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewHabitViewController.swift; sourceTree = "<group>"; };
 		E0E55E082BE2B3A000DCF1D7 /* Habbity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Habbity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0E55E0B2BE2B3A000DCF1D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E0E55E0D2BE2B3A000DCF1D7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,9 @@
 				E0E55E0D2BE2B3A000DCF1D7 /* SceneDelegate.swift */,
 				E0E55E0F2BE2B3A000DCF1D7 /* ViewController.swift */,
 				E0E55E112BE2B3A000DCF1D7 /* Main.storyboard */,
+				E056E5E02BE3D31F00EB2917 /* AddNewHabitViewController.swift */,
+				E056E5DE2BE3D1EA00EB2917 /* SignUpViewController.swift */,
+				E056E5DC2BE3D0B800EB2917 /* LogInViewController.swift */,
 				E0E55E142BE2B3AC00DCF1D7 /* Assets.xcassets */,
 				E0E55E162BE2B3AC00DCF1D7 /* LaunchScreen.storyboard */,
 				E0E55E192BE2B3AC00DCF1D7 /* Info.plist */,
@@ -265,7 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E0E55E102BE2B3A000DCF1D7 /* ViewController.swift in Sources */,
+				E056E5DF2BE3D1EA00EB2917 /* SignUpViewController.swift in Sources */,
 				E0E55E0C2BE2B3A000DCF1D7 /* AppDelegate.swift in Sources */,
+				E056E5DD2BE3D0B800EB2917 /* LogInViewController.swift in Sources */,
+				E056E5E12BE3D31F00EB2917 /* AddNewHabitViewController.swift in Sources */,
 				E0E55E3E2BE2B92200DCF1D7 /* CollectionViewCell.swift in Sources */,
 				E0E55E0E2BE2B3A000DCF1D7 /* SceneDelegate.swift in Sources */,
 				E056E5DB2BE38E0400EB2917 /* NewHabitViewController.swift in Sources */,
