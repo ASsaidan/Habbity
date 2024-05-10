@@ -82,7 +82,7 @@ class CollectionViewCell: UICollectionViewCell {
         let habitRef = db.collection("habits").document(habit.documentID)
         
         if statusSwitcher.isOn {
-            streakCount += 1  
+            streakCount += 1
         } else {
             streakCount = 0
         }
@@ -110,7 +110,7 @@ class CollectionViewCell: UICollectionViewCell {
                 self.habit?.streakCount = self.streakCount
                 self.updateStreakTitle()
                 
-                if self.streakCount == 2 {
+                if self.streakCount == 7 {
                     habitRef.delete() { error in
                         if let error = error {
                             print("Error deleting habit: \(error.localizedDescription)")
@@ -128,8 +128,8 @@ class CollectionViewCell: UICollectionViewCell {
                             }
                         }
                     }
+                }
+            }
         }
     }
-}
-}
 }

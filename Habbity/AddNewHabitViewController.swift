@@ -55,10 +55,10 @@ class AddNewHabitViewController: UIViewController {
                 }
                 
                 let newDocumentID = self.db.collection("habits").document().documentID
-
+                
                 
                 let newHabit: [String: Any] = [
-                    "id": newDocumentID, 
+                    "id": newDocumentID,
                     "title": habitName,
                     "imageURL": imageUrl,
                     "status": false,

@@ -18,16 +18,16 @@ class ViewController: UIViewController {
     var habits: [Habit] = []
     let db = Firestore.firestore()
     var selectedCell: CollectionViewCell?
-
+    
     let emptyLabel: UILabel = {
-    let label = UILabel()
-    label.text = "Habits list is empty"
-    label.font = UIFont.systemFont(ofSize: 20)
-    label.textColor = UIColor.gray
-    label.textAlignment = .center
-    label.translatesAutoresizingMaskIntoConstraints = false
-    return label
-}()
+        let label = UILabel()
+        label.text = "Habits list is empty"
+        label.font = UIFont.systemFont(ofSize: 20)
+        label.textColor = UIColor.gray
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     
     
     override func viewDidLoad() {
@@ -35,11 +35,11 @@ class ViewController: UIViewController {
         
         collectionView.dataSource = self
         collectionView.delegate = self
-
-
-    view.addSubview(emptyLabel)
-    emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    emptyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        
+        view.addSubview(emptyLabel)
+        emptyLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        emptyLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         db.collection("habits").addSnapshotListener { (querySnapshot, error) in
             guard let documents = querySnapshot?.documents else {
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-                let count = habits.count
+        let count = habits.count
         emptyLabel.isHidden = count != 0
         return count
     }
@@ -84,20 +84,20 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         let size = (collectionView.frame.size.width - 10) / 2
         return CGSize(width: size, height: size)
     }
-
-        func updateStreakCount(for habit: Habit, streakCount: Int) {
+    
+    func updateStreakCount(for habit: Habit, streakCount: Int) {
         let db = Firestore.firestore()
-
-            let habitRef = db.collection("habits").document(habit.documentID)
-
-            habitRef.updateData([
-                "streakCount": streakCount
-            ]) { err in
-                if let err = err {
-                    print("Error updating document: \(err)")
-                } else {
-                    print("Document successfully updated")
-                }
+        
+        let habitRef = db.collection("habits").document(habit.documentID)
+        
+        habitRef.updateData([
+            "streakCount": streakCount
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated")
             }
+        }
     }
 }
