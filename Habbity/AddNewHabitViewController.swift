@@ -22,16 +22,14 @@ class AddNewHabitViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    
     @IBAction func addNewHabitClicked(_ sender: UIButton) {
         guard let habitName = habitNameTextField.text, !habitName.isEmpty else {
-            // Handle empty habit name
             showAlert(title: "Error", message: "Please enter a habit name.")
             return
         }
         
         guard let habitImage = selectedImageView.image else {
-            // Handle missing image
             showAlert(title: "Error", message: "Please select an image for the habit.")
             return
         }
@@ -56,24 +54,30 @@ class AddNewHabitViewController: UIViewController {
                     return
                 }
                 
+                let newDocumentID = self.db.collection("habits").document().documentID
+
+                
                 let newHabit: [String: Any] = [
+                    "id": newDocumentID, 
                     "title": habitName,
                     "imageURL": imageUrl,
-                    "status": false
+                    "status": false,
+                    "streakCount": 0
                 ]
                 
-                // Save the new habit to Firestore
-                self.db.collection("habits").addDocument(data: newHabit) { (error) in
+                self.db.collection("habits").document(newDocumentID).setData(newHabit) { (error) in
                     if let error = error {
                         print("Error saving habit: \(error.localizedDescription)")
                     } else {
                         print("Habit saved successfully")
                         self.dismiss(animated: true, completion: nil)
+                        
                     }
                 }
             }
         }
     }
+    
     
     @IBAction func uploadImageClicked(_ sender: UIButton) {
         let imagePickerController = UIImagePickerController()
@@ -98,7 +102,7 @@ extension AddNewHabitViewController: UIImagePickerControllerDelegate, UINavigati
         
         picker.dismiss(animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
