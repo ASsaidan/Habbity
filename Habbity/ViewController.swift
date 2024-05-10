@@ -6,49 +6,67 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseFirestore
+import SDWebImage
+
 
 class ViewController: UIViewController {
     
     @IBOutlet weak var addNewHabit: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
-    var images: [String] =
-    ["one", "two", "three"]
     
-    var titleLbl: [String] =
-    ["Read book for 10 minutes", "Pray to god", "Go to the gym"]
+    var habits: [Habit] = []
+    let db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        // Observe the habits collection in Firestore
+        db.collection("habits").addSnapshotListener { (querySnapshot, error) in
+            guard let documents = querySnapshot?.documents else {
+                print("Error fetching documents: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            
+            self.habits = documents.map { (queryDocumentSnapshot) -> Habit in
+                let data = queryDocumentSnapshot.data()
+                let habit = Habit(dictionary: data)
+                return habit
+            }
+            
+            self.collectionView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAddNewHabit" {
+            let addNewHabitVC = segue.destination as! AddNewHabitViewController
+            addNewHabitVC.title = "Add New Habit"
+        }
     }
 }
 
-extension ViewController:
-    UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) ->
-    Int {
-        return titleLbl.count
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return habits.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) ->
-    UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        as! CollectionViewCell
-        cell.layer.borderWidth = 0.5
-        cell.layer.cornerRadius = 23
-        cell.imageView.layer.cornerRadius = 23
-        cell.layer.borderColor = UIColor.blue.cgColor
-        cell.pTitle.text = titleLbl[indexPath.row]
-        cell.imageView.image = UIImage(named: images [indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
+        let habit = habits[indexPath.row]
+        cell.pTitle.text = habit.title
+        cell.imageView.sd_setImage(with: URL(string: habit.imageURL))
+        cell.statusSwitcher.isOn = habit.status
+        cell.habit = habit
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout:
-                        UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = (collectionView.frame.size.width-10)/2
-        return CGSize (width: size, height: size)
-        
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = (collectionView.frame.size.width - 10) / 2
+        return CGSize(width: size, height: size)
     }
 }
-
-
